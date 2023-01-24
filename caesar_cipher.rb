@@ -16,6 +16,7 @@ def caesar_cipher(str, num)
       c
     end
   end
+  
   encoded_string.join('')
 end
 
@@ -26,10 +27,9 @@ message = gets.chomp
 
 cipher = 0
 puts "Enter a number:"
-
 loop do
   cipher = gets.chomp
- break if cipher.to_i != 0
- end
+  break if cipher.to_i != 0
+end
 
-p caesar_cipher(message, cipher)
+puts caesar_cipher(message, cipher)

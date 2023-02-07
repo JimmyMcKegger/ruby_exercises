@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 # Tic Tac Toe game for the Odin Project
 
@@ -57,8 +58,8 @@ class TicTacToe
     turn_order = [@x, @o]
     until @players.any?(&:won?) || @spaces_remaining.zero?
       show_board
-      current_player = turn_order[0]
-      turn_order = round(current_player, turn_order)
+      current_player = @players[0]
+      round(current_player)
       check_for_win(current_player)
     end
     result
@@ -66,7 +67,7 @@ class TicTacToe
 
   private
 
-  def round(player, turn_order)
+  def round(player)
     puts "\nStarting round for #{player.name}"
     pick = -1
     until (1..9).include?(pick)
@@ -77,7 +78,7 @@ class TicTacToe
     if @board[row][column].to_i.positive?
       @board[row][column] = player.name
       @spaces_remaining -= 1
-      turn_order.rotate!
+      @players.rotate!
     else
       puts 'Invalid choice'.colorize(:red)
     end
@@ -102,11 +103,11 @@ class TicTacToe
     winning_line = Array.new(3, player.name)
     winning_test = proc { |line| line == winning_line }
 
+    diagonals = [@board.flatten.values_at(0, 4, 8), @board.flatten.values_at(2, 4, 6)]
+    return player.wins! if diagonals.any?(winning_line)
+
     3.times do |i|
       return player.wins! if winning_test.call(@board[i]) || winning_test.call(@board.transpose[i])
-
-      diagonals = [@board.flatten.values_at(0, 4, 8), @board.flatten.values_at(2, 4, 6)]
-      return player.wins! if diagonals.any?(winning_line)
     end
   end
 end

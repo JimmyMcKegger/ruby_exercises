@@ -9,10 +9,10 @@ class RockPaperScissors
       puts "Pick 'Rock', 'Paper', or 'Scissors': "
       @player1 = gets.chomp.downcase
     end
-    random_result(@player1)
+    random_result
   end
   private
-  def random_result(p1_pick)
+  def random_result
     puts ["Woohoo! You win", "Say it ain’t so… you lost", "Looks like a draw"].sample
   end
 end

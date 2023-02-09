@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "prompt_start": "Mr. \"Perfect face\"\nMr. \"Here to stay\"\nMr. \"Looked me in the eye and told me you would never go away\"\n",
+      "easy": "Everything _ right\n\nWhat is the missing word?\n1. was.\n2. is.\n3. not.\n\nYour guess:",
+      "easy_answer": 1,
+      "medium": "What is the missing word?\n",
+      "medium_answer": "was",
+      "hard": "What is the next line?\n",
+      "hard_answer": "Everything was right",
+      "lose_text": "Sorry! The correct lyric is 'Everything was right' from the song, Mr. Perfectly Fine."
+    }
+  ]
+}
